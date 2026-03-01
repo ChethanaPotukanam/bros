@@ -1,8 +1,20 @@
 import streamlit as st
+from styles import CSS
 
-pg = st.navigation([
-    st.Page("pages/serious.py", title="Serious", icon="✨"),
-    st.Page("pages/fun.py", title="Fun", icon="🔥"),
-    st.Page("pages/insights.py", title="Insights", icon="📊")
-])
-pg.run()
+st.markdown(f"<style>{CSS}</style>", unsafe_allow_html=True)
+
+pg = st.navigation({
+    "Serious": [
+        st.Page("routes/search.py", title="Search", icon="⚡"),
+        st.Page("routes/birthdays.py", title="Birthdays", icon="🩷"),
+        st.Page("routes/insights.py", title="Insights", icon="☀️")
+    ],
+    "Fun": [
+        st.Page("routes/flames.py", title="Flames", icon="🔥"),
+        st.Page("routes/cheese.py", title="Smile", icon="🐗")
+    ],
+    "Chat": [
+        st.Page("routes/chat.py", title="Chat", icon="💬"),
+    ],
+})
+pg.run() 
